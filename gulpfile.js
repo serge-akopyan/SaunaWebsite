@@ -1,11 +1,10 @@
-let preprocessor = 'sass';
+let preprocessor = 'scss';
 
 const { src, dest, parallel, series, watch } = require('gulp');
 const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify-es').default;
-const sass = require('gulp-sass');
-const less = require('gulp-less');
+const scss = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleancss = require('gulp-clean-css');
 const imagemin = require('gulp-imagemin');
@@ -77,4 +76,4 @@ exports.images = images;
 exports.cleanimg = cleanimg;
 exports.build = series(cleandist, styles, scripts, images, buildcopy)
 
-exports.default = parallel(scripts, styles, browsersync, startwatch);
+exports.start = parallel(scripts, styles, browsersync, startwatch);
